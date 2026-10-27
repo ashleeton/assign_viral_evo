@@ -24,8 +24,9 @@ def jukes_cantor(reference_sequence: str, distant_sequence: str) -> float:
     """
     length = 0
     mismatches = 0
+    real_bases = ["A", "C", "G", "T"]
     for x, y in zip(reference_sequence, distant_sequence):
-        if x == "-" or y == "-":
+        if x not in real_bases or y not in real_bases:
             continue
         length += 1
         if x != y:
